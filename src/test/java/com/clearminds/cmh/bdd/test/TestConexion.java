@@ -10,7 +10,7 @@ public class TestConexion {
 		try {
 			Connection conn = ConexionBDD.obtenerConexion();
 			if (conn!=null) {
-				System.out.println("Conexio Exitosa...");
+				System.out.println("Conexión Exitosa...");
 			} 
 		} catch (BDDException e) {
 			e.printStackTrace();
