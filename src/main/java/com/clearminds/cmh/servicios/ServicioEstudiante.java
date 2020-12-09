@@ -1,31 +1,55 @@
 package com.clearminds.cmh.servicios;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.clearminds.cmh.bdd.ConexionBDD;
 import com.clearminds.cmh.dtos.Estudiante;
 import com.clearminds.cmh.excepciones.BDDException;
 
 public class ServicioEstudiante extends ServicioBase {
 
 	public void insertarEstudiante(Estudiante estudiante) {
-		Connection conn = null;
 		Statement stmt = null;
-		
-		try {
-			conn = ConexionBDD.obtenerConexion();
 
+		try {
+			abrirConexion();
 			// Ejecutar instruccion SQL
 			System.out.println("Insertando registros a la tabla...");
-			stmt = conn.createStatement();
+			stmt = getConexion().createStatement();
 
-			String sql = "INSERT INTO estudiantes " + "VALUES ('+" + estudiante.getNombre() + "','" + estudiante.getApellido() + "')";
+			String sql = "INSERT INTO estudiantes " + "VALUES ('" + estudiante.getNombre() + "','"
+					+ estudiante.getApellido() + "')";
+			System.out.println("Insertado estudiante: " + estudiante);
 			stmt.executeUpdate(sql);
+			System.out.println("Script: " + sql);
 		} catch (BDDException | SQLException e) {
 			e.printStackTrace();
 			e.getMessage();
+		} finally {
+			cerrarConexion();
 		}
 	}
+
+	public void actualizarEstudiante(Estudiante estudiante) {
+		Statement stmt = null;
+
+		try {
+			abrirConexion();
+			// Ejecutar instruccion SQL
+			System.out.println("Insertando registros a la tabla...");
+			stmt = getConexion().createStatement();
+
+			String sql = "UPDATE estudiantes SET nombre='" + estudiante.getNombre() + "', apellido='" + estudiante.getApellido() + 
+					     "' WHERE id=" + estudiante.getId();
+			System.out.println("Actualizando estudiante: " + estudiante);
+			stmt.executeUpdate(sql);
+			System.out.println("Script: " + sql);
+		} catch (BDDException | SQLException e) {
+			e.printStackTrace();
+			e.getMessage();
+		} finally {
+			cerrarConexion();
+		}
+	}
+
 }

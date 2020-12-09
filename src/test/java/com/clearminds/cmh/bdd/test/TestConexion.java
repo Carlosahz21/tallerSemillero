@@ -15,6 +15,8 @@ public class TestConexion {
 		} catch (BDDException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
+		} finally {
+			
 		}
 	}
 }

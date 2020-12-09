@@ -8,14 +8,23 @@ import com.clearminds.cmh.excepciones.BDDException;
 
 public class ServicioBase {
 	Connection conexion;
-	
+
+	public Connection getConexion() {
+		return conexion;
+	}
+
+	public void setConexion(Connection conexion) {
+		this.conexion = conexion;
+	}
+
 	public void abrirConexion() throws BDDException {
 		conexion = ConexionBDD.obtenerConexion();
 	}
-	
+
 	public void cerrarConexion() {
 		try {
 			conexion.close();
+			System.out.println("Conexion Cerrada");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Error al cerrar la conexion");
