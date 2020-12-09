@@ -7,7 +7,7 @@ import com.clearminds.cmh.dtos.Estudiante;
 import com.clearminds.cmh.excepciones.BDDException;
 
 public class ServicioEstudiante extends ServicioBase {
-
+		
 	public void insertarEstudiante(Estudiante estudiante) {
 		Statement stmt = null;
 

@@ -16,10 +16,8 @@ public class ConexionBDD {
 			p.load(new FileReader("conexion.properties"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			return null;
 		} catch (IOException e) {
 			e.printStackTrace();
-			return null;
 		}
 
 		return p.getProperty(propiedad);
