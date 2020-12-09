@@ -31,7 +31,7 @@ public class ConexionBDD {
 		String url = leerPropiedad("urlConexion");
 		Connection conn = null;
 
-		//Abrir una conneccion
+		// Abrir una conneccion
 		System.out.println("Conectando a la base de datos...");
 		
 		try {
