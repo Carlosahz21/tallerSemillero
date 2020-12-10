@@ -13,10 +13,6 @@ public class ServicioBase {
 		return conexion;
 	}
 
-	public void setConexion(Connection conexion) {
-		this.conexion = conexion;
-	}
-
 	public void abrirConexion() throws BDDException {
 		conexion = ConexionBDD.obtenerConexion();
 	}

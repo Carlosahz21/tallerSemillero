@@ -34,9 +34,8 @@ public class ServicioEstudiante extends ServicioBase {
 		Statement stmt = null;
 
 		try {
-			abrirConexion();
 			// Ejecutar instruccion SQL
-			System.out.println("Insertando registros a la tabla...");
+			System.out.println("Modificando registros de la tabla...");
 			stmt = getConexion().createStatement();
 
 			String sql = "UPDATE estudiantes SET nombre='" + estudiante.getNombre() + "', apellido='" + estudiante.getApellido() + 
@@ -44,7 +43,7 @@ public class ServicioEstudiante extends ServicioBase {
 			System.out.println("Actualizando estudiante: " + estudiante);
 			stmt.executeUpdate(sql);
 			System.out.println("Script: " + sql);
-		} catch (BDDException | SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 			e.getMessage();
 		} finally {
