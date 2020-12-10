@@ -8,7 +8,7 @@ import com.clearminds.cmh.excepciones.BDDException;
 
 public class ServicioEstudiante extends ServicioBase {
 		
-	public void insertarEstudiante(Estudiante estudiante) {
+	public void insertarEstudiante(Estudiante estudiante) throws SQLException {
 		Statement stmt = null;
 
 		try {
@@ -22,7 +22,7 @@ public class ServicioEstudiante extends ServicioBase {
 			System.out.println("Insertado estudiante: " + estudiante);
 			stmt.executeUpdate(sql);
 			System.out.println("Script: " + sql);
-		} catch (BDDException | SQLException e) {
+		} catch (BDDException e) {
 			e.printStackTrace();
 			e.getMessage();
 		} finally {
