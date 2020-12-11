@@ -38,11 +38,14 @@ public class ServicioEstudiante extends ServicioBase {
 			System.out.println("Modificando registros de la tabla...");
 			stmt = getConexion().createStatement();
 
-			String sql = "UPDATE estudiantes SET nombre='" + estudiante.getNombre() + "', apellido='" + estudiante.getApellido() + 
-					     "' WHERE id=" + estudiante.getId() + "', '"+ estudiante.getEdad()+ "')";
+			String sql = "UPDATE estudiantes SET nombre='" + estudiante.getNombre() + 
+						 "', apellido='" + estudiante.getApellido() +
+						 "', edad='" + estudiante.getEdad() +
+						 "', fecha_modificacion='" + estudiante.getFecha() +
+					     "' WHERE id=" + estudiante.getId();
 			System.out.println("Actualizando estudiante: " + estudiante);
-			stmt.executeUpdate(sql);
 			System.out.println("Script: " + sql);
+			stmt.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			e.getMessage();
